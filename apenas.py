@@ -4,16 +4,19 @@ i = 0
 
 print("A lenda do cofre de Eldoria: Uma Aventura Personalizada\n")
 
-#função para inicializar atributos do jogador
+#função inicializar atributos do jogador
 def inicializarJogador():
+    global nomeAvatar 
     nomeAvatar = input("Digite o nome do seu avatar: ")
+    global nivel
     nivel = 1
+    global xp
     xp = 0
+    global vida
     vida = 3
+    global coin
     coin = 0
-    return nomeAvatar, nivel, xp, vida, coin
 
-#função para exibir a ficha
 def exibirFicha(nomeAvatar, nivel, xp, vida, coin):
     print("Ficha de " + nomeAvatar + ":")
     print("NIvel: ", nivel)
@@ -21,7 +24,6 @@ def exibirFicha(nomeAvatar, nivel, xp, vida, coin):
     print("Vidas: ", vida)
     print("Moedas: ", coin)
 
-#função paea rolar os dados
 def rolarDados():
     num = randint(3, 18)
     dado1 = randint(1, 6)
@@ -31,9 +33,7 @@ def rolarDados():
 
     return dados, num
 
-
-def Jogo():
-    nomeAvatar, nivel, xp, vida, coin = inicializarJogador()
+inicializarJogador()
 
 while True:
     exibirFicha(nomeAvatar, nivel, xp, vida, coin)
@@ -48,10 +48,5 @@ while True:
         xp += 2
     elif dados != num:
         print("Voce errou!")
-
-        
-
-
-
 
     break
